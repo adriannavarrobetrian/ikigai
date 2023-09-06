@@ -1,10 +1,10 @@
 data "aws_ami" "jenkins-master" {
   most_recent = true
-  #owners      = ["self"]
+  owners      = ["self"]
 
   filter {
     name   = "name"
-    values = ["al2023-ami-2023.1.20230825.0-kernel-6.1-x86_64"]
+    values = var.jenkins_master_ami
   }
 }
 

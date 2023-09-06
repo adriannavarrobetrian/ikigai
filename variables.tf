@@ -103,3 +103,9 @@ variable "jenkins_worker_instance_type" {
   description = "Jenkins worker EC2 instance type"
   default = "t2.medium"
 }
+
+variable "jenkins_master_ami" {
+  type        = list
+  description = "Jenkins master AMI"
+}
+
