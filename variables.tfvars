@@ -1,0 +1,12 @@
+region = "eu-west-1"
+author = "adri"
+availability_zones = ["eu-west-1a","eu-west-1b"]
+aws_profile = "visiondirect-test"
+domain_name = "test"
+hosted_zone_id = "test"
+jenkins_credentials_id = "test"
+jenkins_password = "Password1!"
+jenkins_username = "anavarro"
+public_key ="bastion.key.pub"
+shared_credentials_file = "$HOME/.aws/credentials"
+ssl_arn = "arn"
