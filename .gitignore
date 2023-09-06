@@ -5,3 +5,4 @@ terraform.tfstate.backup
 bastion.key
 bastion.key.pub
 terraform.tfstate
+.terraform.tfstate.lock.info
