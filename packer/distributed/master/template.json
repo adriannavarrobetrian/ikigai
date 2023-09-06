@@ -1,10 +1,10 @@
 {
     "variables" : {
-        "region" : "AWS REGION",
-        "aws_profile": "AWS PROFILE",
-        "source_ami" : "AMAZON LINUX AMI 2 ID",
-        "instance_type": "INSTANCE TYPE",
-        "ssh_key": "PRIVATE SSH KEY"
+        "region" : "eu-west-1",
+        "aws_profile": "visiondirect-test",
+        "source_ami" : "ami-057b6e529186a8233",
+        "instance_type": "t2.large",
+        "ssh_key": "jenkins.key"
     },
     "builders" : [
         {
@@ -14,8 +14,20 @@
             "instance_type" : "{{user `instance_type`}}",
             "source_ami" : "{{user `source_ami`}}",
             "ssh_username" : "ec2-user",
-            "ami_name" : "jenkins-master-2.204.1",
+            "ami_name" : "jenkins-master-configured",
             "ami_description" : "Amazon Linux Image with Jenkins Server",
+            "vpc_filter": {
+                "filters": {
+                  "tag:Name": "management",
+                  "isDefault": "false"
+                }
+              },
+              "subnet_filter": {
+                "filters": {
+                  "tag:Author": "adri"
+                },
+                "random": true
+              },
             "run_tags" : {
                 "Name" : "packer-builder"
             }

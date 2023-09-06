@@ -6,3 +6,5 @@ bastion.key
 bastion.key.pub
 terraform.tfstate
 .terraform.tfstate.lock.info
+packer/distributed/master/jenkins.key
+packer/distributed/master/jenkins.key.pub

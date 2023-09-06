@@ -10,4 +10,4 @@ jenkins_username = "anavarro"
 public_key ="bastion.key.pub"
 shared_credentials_file = "$HOME/.aws/credentials"
 ssl_arn = "arn"
-jenkins_master_ami = ["jenkins-master-2.204.1"]
+jenkins_master_ami = ["jenkins-master-configured"]
