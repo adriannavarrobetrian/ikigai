@@ -1,6 +1,6 @@
 // Static IP for Nat Gateway
 resource "aws_eip" "nat" {
-  domain   = "vpc"
+  domain = "vpc"
 
   tags = {
     Name   = "eip-nat_${var.vpc_name}"

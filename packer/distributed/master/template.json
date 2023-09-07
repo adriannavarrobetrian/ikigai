@@ -14,7 +14,7 @@
             "instance_type" : "{{user `instance_type`}}",
             "source_ami" : "{{user `source_ami`}}",
             "ssh_username" : "ec2-user",
-            "ami_name" : "jenkins-master-configured",
+            "ami_name" : "jenkins-master",
             "ami_description" : "Amazon Linux Image with Jenkins Server",
             "vpc_filter": {
                 "filters": {

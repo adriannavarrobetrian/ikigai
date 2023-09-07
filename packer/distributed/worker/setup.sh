@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Install Java JDK 8"
-yum remove -y java
-yum install -y java-1.8.0-openjdk
+yum update -y
+yum install java-17-amazon-corretto-devel -y
 
 echo "Install Docker engine"
 yum update -y

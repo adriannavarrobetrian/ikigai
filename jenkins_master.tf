@@ -8,7 +8,7 @@ data "aws_ami" "jenkins-master" {
   }
 }
 
-  
+
 resource "aws_security_group" "jenkins_master_sg" {
   name        = "jenkins_master_sg"
   description = "Allow traffic on port 8080 and enable SSH"
@@ -26,7 +26,7 @@ resource "aws_security_group" "jenkins_master_sg" {
     to_port         = "8080"
     protocol        = "tcp"
     security_groups = [aws_security_group.elb_jenkins_sg.id]
-    cidr_blocks = [var.cidr_block]
+    cidr_blocks     = [var.cidr_block]
   }
 
   egress {
@@ -66,7 +66,7 @@ resource "aws_security_group" "elb_jenkins_sg" {
   name        = "elb_jenkins_sg"
   description = "Allow http traffic"
   vpc_id      = aws_vpc.management.id
-  
+
   ingress {
     from_port   = "80"
     to_port     = "80"
@@ -101,19 +101,19 @@ resource "aws_elb" "jenkins_elb" {
   security_groups           = [aws_security_group.elb_jenkins_sg.id]
   instances                 = [aws_instance.jenkins_master.id]
 
-#   listener {
-#     instance_port      = 8080
-#     instance_protocol  = "http"
-#     lb_port            = 443
-#     lb_protocol        = "https"
-#     #ssl_certificate_id = var.ssl_arn
-#   }
+  #   listener {
+  #     instance_port      = 8080
+  #     instance_protocol  = "http"
+  #     lb_port            = 443
+  #     lb_protocol        = "https"
+  #     #ssl_certificate_id = var.ssl_arn
+  #   }
 
   listener {
-    instance_port      = 8080
-    instance_protocol  = "http"
-    lb_port            = 80
-    lb_protocol        = "http"
+    instance_port     = 8080
+    instance_protocol = "http"
+    lb_port           = 80
+    lb_protocol       = "http"
 
   }
 

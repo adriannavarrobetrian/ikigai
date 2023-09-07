@@ -1,9 +1,9 @@
 {
     "variables" : {
-        "region" : "AWS REGION",
-        "aws_profile": "AWS PROFILE",
-        "source_ami" : "AMAZON LINUX AMI 2 ID",
-        "instance_type": "INSTANCE TYPE"
+        "region" : "eu-west-1",
+        "aws_profile": "visiondirect-test",
+        "source_ami" : "ami-057b6e529186a8233",
+        "instance_type": "t2.large"
     },
     "builders" : [
         {
@@ -15,6 +15,18 @@
             "ssh_username" : "ec2-user",
             "ami_name" : "jenkins-worker1",
             "ami_description" : "Jenkins worker's AMI",
+            "vpc_filter": {
+                "filters": {
+                  "tag:Name": "management",
+                  "isDefault": "false"
+                }
+              },
+              "subnet_filter": {
+                "filters": {
+                  "tag:Author": "adri"
+                },
+                "random": true
+              },
             "run_tags" : {
                 "Name" : "packer-builder"
             }
