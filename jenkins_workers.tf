@@ -21,7 +21,7 @@ data "template_file" "user_data_jenkins_worker" {
   }
 }
 
-// Jenkinw workers security group
+// Jenkins workers security group
 resource "aws_security_group" "jenkins_workers_sg" {
   name        = "jenkins_workers_sg"
   description = "Allow traffic on port 22 from Jenkins master SG"
