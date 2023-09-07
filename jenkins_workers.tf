@@ -49,7 +49,7 @@ resource "aws_security_group" "jenkins_workers_sg" {
 
 // Jenkins workers launch configuration
 resource "aws_launch_configuration" "jenkins_workers_launch_conf" {
-  name            = "jenkins_workers_config"
+  name            = "jenkins_workers_config1"
   image_id        = data.aws_ami.jenkins-worker.id
   instance_type   = var.jenkins_worker_instance_type
   key_name        = aws_key_pair.management.id
@@ -63,7 +63,7 @@ resource "aws_launch_configuration" "jenkins_workers_launch_conf" {
   }
 
   lifecycle {
-    create_before_destroy = true
+    create_before_destroy = false
   }
 }
 
