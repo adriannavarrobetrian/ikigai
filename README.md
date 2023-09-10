@@ -1,5 +1,7 @@
 # Ikigai
 
+Multi Cloud Infrastructure.
+
 
 ## Introduction
 
@@ -19,10 +21,6 @@ This repo and all the others referenced here try to encompass that philosophy an
 
 
 ## Description
-
-
-Basic multi cloud infrastructure
-
 
 This project creates a cloud infrastructure for several cloud providers.
 
