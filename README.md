@@ -17,10 +17,9 @@ The Westernized version of ikigai says you’ve found your dream career when you
 ![Alt text](ikigai.png)
 
 
-This repo and all the others referenced here try to encompass that philosophy and serve as a way for me to play/practice/learn/show everything related to the DevOps work I do.
-
-
 ## Description
+
+This repo and all the others referenced here try to encompass that philosophy and serve as a way for me to play/practice/learn/show everything related to the DevOps work I do.
 
 This project creates a cloud infrastructure for several cloud providers.
 
