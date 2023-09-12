@@ -1,0 +1,41 @@
+version: "3.3"
+
+services:
+  movies-loader:
+    image: adriannavarro/loader:develop
+    volumes:
+      - .:/root/.aws
+    environment:
+      - AWS_REGION=eu-west-1
+      - SQS_URL=https://sqs.eu-west-1.amazonaws.com/646390474080/movies_to_parse
+  
+  movies-parser:
+    image: adriannavarro/parser:develop
+    environment:
+      - AWS_REGION=eu-west-1
+      - SQS_URL=https://sqs.eu-west-1.amazonaws.com/646390474080/movies_to_parse
+      - MONGO_URI=mongodb://root:root@mongodb/watchlist?retryWrites=true&w=majority&poolSize=1
+      - MONGO_DATABASE=watchlist
+    depends_on:
+      - mongodb
+  
+  movies-store:
+    image: adriannavarro/store:develop
+    environment:
+      - MONGO_URI=mongodb://root:root@mongodb/watchlist?retryWrites=true&w=majority&poolSize=1
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+
+  movies-marketplace:
+    image: adriannavarro/marketplace:develop
+    ports:
+      - 80:80
+
+  mongodb:
+    image: bitnami/mongodb:latest
+    environment:
+      - MONGODB_USERNAME=root
+      - MONGODB_PASSWORD=root
+      - MONGODB_DATABASE=watchlist

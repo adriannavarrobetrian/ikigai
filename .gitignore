@@ -9,3 +9,5 @@ packer/distributed/master/jenkins.key
 packer/distributed/master/jenkins.key.pub
 .terraform/
 Repository Name: "DevOpsDojo: Finding Ik.md
+config
+credentials
