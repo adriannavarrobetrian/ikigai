@@ -15,5 +15,5 @@ output "production" {
 }
 
 output "marketplace" {
-    value = aws_s3_bucket.marketplace.website_endpoint
+    value = aws_s3_bucket_website_configuration.website_configuration.website_domain
 }
