@@ -15,6 +15,7 @@ spec:
       containers:
       - name: marketplace
         image: adriannavarro/marketplace:develop
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
         resources:

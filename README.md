@@ -1,25 +1,46 @@
 # Ikigai
 
 Multi Cloud Infrastructure.
-
-
 ## Introduction
+
+Welcome to my personal Ikigai project repository dedicated to honing my DevOps skills while embodying the principles of the Ikigai philosophy. Just as Ikigai represents the convergence of passion, mission, vocation, and profession, this repository seeks to unite my passion for coding and my commitment to continuous learning, while contributing to the greater DevOps community.
 
 Ikigai is a Japanese concept that means your "reason for being." "Iki" in Japanese means "life", and "gai" describes value or worth. Your ikigai is your life purpose or your bliss. It's what brings you joy and inspires you to get out of bed every day.
 
 The Westernized version of ikigai says you’ve found your dream career when your career includes these four qualities:
 
-- What you love
-- What you’re good at
-- What you can be paid for
-- What the world needs
+- What you love.
+- What you’re good at.
+- What you can be paid for.
+- What the world needs.
+
+This repo and all the others referenced here try to encompass that philosophy and serve as a way for me to play/practice/learn/show everything related to the DevOps work I do.
 
 ![Alt text](ikigai.png)
 
+**Project Objectives:**
+
+1. **Skill Enhancement:** This repository serves as a sandbox for mastering DevOps practices and tools. Expect to find code, configurations, and scripts that illustrate various aspects of continuous integration, continuous delivery, infrastructure as code, containerization, and more.
+
+2. **Collaborative Learning:** Collaboration is at the heart of both DevOps and Ikigai philosophy. Feel free to fork, contribute, and collaborate on this project. By working together, we can collectively enhance our skills and achieve greater outcomes.
+
+3. **Documentation:** Clear documentation is essential in both DevOps and Ikigai. You'll find detailed README files, code comments, and guides to ensure that everything in this repository is understandable and accessible to everyone.
+
+4. **Experimentation:** DevOps is all about experimentation and improvement. This repository will include experimental features and configurations to explore new DevOps trends and best practices.
+
+**Key Features:**
+
+- **CI/CD Pipelines:** A collection of CI/CD pipelines for different types of applications and services, demonstrating automated testing, building, and deployment.
+
+- **Infrastructure as Code (IaC):** Infrastructure provisioning and management code using tools like Terraform, Ansible, or CloudFormation.
+
+- **Containerization:** Examples of Dockerfiles and Kubernetes configurations for containerized applications.
+
+- **Monitoring and Logging:** Integrations with monitoring and logging solutions for observability and incident response.
+
+- **Security Practices:** DevOps security configurations and best practices for application and infrastructure security.
 
 ## Description
-
-This repo and all the others referenced here try to encompass that philosophy and serve as a way for me to play/practice/learn/show everything related to the DevOps work I do.
 
 This project creates a cloud infrastructure for several cloud providers.
 
