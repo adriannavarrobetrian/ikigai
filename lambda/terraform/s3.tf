@@ -1,3 +1,7 @@
+resource "aws_s3_bucket" "deployment" {
+  bucket = "deployment-packages-watchlist.${var.domain_name}"
+}
+
 resource "aws_s3_bucket" "marketplace" {
   bucket = "marketplace.${var.domain_name}"
 }
