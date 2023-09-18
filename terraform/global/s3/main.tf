@@ -7,10 +7,23 @@ terraform {
       version = "~> 4.0"
     }
   }
+
+  backend "s3" {
+
+    # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
+    # manually, uncomment and fill in the config below.
+
+    bucket         = "terraform-state-ikigai"
+    key            = "global/s3/terraform.tfstate"
+    region         = "eu-west-2"
+    dynamodb_table = "terraform-locks-ikigai"
+    encrypt        = true
+
+  }
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "eu-west-2"
 }
 
 resource "aws_s3_bucket" "terraform_state" {

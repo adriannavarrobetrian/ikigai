@@ -13,21 +13,21 @@ terraform {
     # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
     # manually, uncomment and fill in the config below.
 
-    # bucket         = "<YOUR S3 BUCKET>"
-    # key            = "<SOME PATH>/terraform.tfstate"
-    # region         = "us-east-2"
-    # dynamodb_table = "<YOUR DYNAMODB TABLE>"
-    # encrypt        = true
+    bucket         = "terraform-state-ikigai"
+    key            = "staging/data-stores/mysql/terraform.tfstate"
+    region         = "eu-west-2"
+    dynamodb_table = "terraform-locks-ikigai"
+    encrypt        = true
 
   }
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "eu-west-2"
 }
 
 resource "aws_db_instance" "example" {
-  identifier_prefix   = "terraform-up-and-running"
+  identifier_prefix   = "test"
   engine              = "mysql"
   allocated_storage   = 10
   instance_class      = "db.t2.micro"
