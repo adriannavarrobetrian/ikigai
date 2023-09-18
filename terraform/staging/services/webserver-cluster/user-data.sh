@@ -1,6 +1,6 @@
 #!/bin/bash
 yum update -y
-sudo yum install httpd -y
+yum install httpd -y
 sed -i 's/Listen 80[[:space:]]*$/Listen 8080/' /etc/httpd/conf/httpd.conf
 
 cat <<'END_HTML' > /var/www/html/index.html
@@ -14,5 +14,5 @@ cat <<'END_HTML' > /var/www/html/index.html
 </html>
 END_HTML
 
-sudo systemctl enable httpd
-sudo systemctl restart httpd
+systemctl enable httpd
+systemctl restart httpd
