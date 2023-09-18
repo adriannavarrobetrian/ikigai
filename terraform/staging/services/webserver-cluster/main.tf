@@ -27,9 +27,10 @@ provider "aws" {
 }
 
 resource "aws_launch_configuration" "example" {
-  image_id        = "ami-07dc0b5cad2999c28"
+  image_id        = "ami-0eb260c4d5475b901"
   instance_type   = "t2.micro"
   security_groups = [aws_security_group.instance.id]
+  key_name = "adriantest"
 
   # Render the User Data script as a template
   user_data = templatefile("user-data.sh", {
