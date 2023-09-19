@@ -21,5 +21,5 @@ variable "db_remote_state_key" {
 variable "cluster_name" {
   description = "The name to use to namespace all the resources in the cluster"
   type        = string
-  default     = "webservers-stage"
+  default     = "webservers-staging"
 }

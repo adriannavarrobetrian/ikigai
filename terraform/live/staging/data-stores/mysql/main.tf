@@ -27,7 +27,7 @@ provider "aws" {
 }
 
 resource "aws_db_instance" "example" {
-  identifier_prefix   = "test"
+  identifier_prefix   = "staging"
   engine              = "mysql"
   allocated_storage   = 10
   instance_class      = "db.t2.micro"
