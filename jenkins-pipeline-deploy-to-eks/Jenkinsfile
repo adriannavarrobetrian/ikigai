@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     dir('jenkins-pipeline-deploy-to-eks/kubernetes') {
-                        sh "aws eks update-kubeconfig --name myapp-eks-cluster"
+                        sh "aws eks update-kubeconfig --name myapp-eks-cluster --region eu-west-2"
                         sh "kubectl apply -f nginx-deployment.yaml"
                         sh "kubectl apply -f nginx-service.yaml"
                     }
