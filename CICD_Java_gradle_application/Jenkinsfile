@@ -32,10 +32,11 @@ pipeline{
                 script{
                     withCredentials([string(credentialsId: 'docker_pass', variable: 'docker_password')]) {
                              sh '''
-                                docker build -t 34.125.214.226:8083/springapp:${VERSION} .
-                                docker login -u admin -p $docker_password 34.125.214.226:8083 
-                                docker push  34.125.214.226:8083/springapp:${VERSION}
-                                docker rmi 34.125.214.226:8083/springapp:${VERSION}
+                                cd CICD_Java_gradle_application/
+                                docker build -t nexus.infra.getlenses.co.uk:8083/springapp:${VERSION} .
+                                docker login -u admin -p $docker_password nexus.infra.getlenses.co.uk:8083 
+                                docker push  nexus.infra.getlenses.co.uk:8083/springapp:${VERSION}
+                                docker rmi nexus.infra.getlenses.co.uk:8083/springapp:${VERSION}
                             '''
                     }
                 }
