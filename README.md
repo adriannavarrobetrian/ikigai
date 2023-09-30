@@ -42,16 +42,7 @@ This repo and all the others referenced here try to encompass that philosophy an
 
 ## Description
 
-This project creates a cloud infrastructure for several cloud providers.
-
-- It uses Packer for building images for Jenkins master and for Jenkins agents.
-- Deploys a VPC with public and private networks using Terraform.
-- Jenkins agents attach themselves to the Jenkins master at boot up.
-- Jenkins agents scale up and down based on load using autoscaling groups.
-- Jenkins is available through a cloud load balancer.
-- Deploys a microservice arquitecture with several languages: Go, Python, NodeJS
-- ...
-
+Every folder has a different project with a README.md explaining what it does.
 
 ## Credits
 
