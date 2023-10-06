@@ -7,16 +7,6 @@ terraform {
       version = "~> 4.0"
     }
   }
-
-  backend "s3" {
-
-    bucket         = "terraform-state-ikigai"
-    key            = "prod/data-stores/mysql/terraform.tfstate"
-    region         = "eu-west-2"
-    dynamodb_table = "terraform-locks-ikigai"
-    encrypt        = true
-
-  }
 }
 
 provider "aws" {
@@ -24,7 +14,7 @@ provider "aws" {
 }
 
 module "mysql" {
-  source = "../../../../modules/data-stores/mysql"
+  source = "../../modules/data-stores/mysql"
 
   db_name     = var.db_name
   db_username = var.db_username

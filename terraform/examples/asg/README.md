@@ -1,7 +1,9 @@
-# MySQL on RDS example (staging environment)
+# ASG example
 
-This folder contains an example [Terraform](https://www.terraform.io/) configuration that deploys a MySQL database  (using 
-[RDS](https://aws.amazon.com/rds/) in an [Amazon Web Services (AWS) account](http://aws.amazon.com/). 
+This folder contains a [Terraform](https://www.terraform.io/) configuration that shows an example of how to 
+use the [asg-rolling-deploy module](../../modules/cluster/asg-rolling-deploy) to deploy a cluster of web servers 
+(using [EC2](https://aws.amazon.com/ec2/) and [Auto Scaling](https://aws.amazon.com/autoscaling/)) in an 
+[Amazon Web Services (AWS) account](http://aws.amazon.com/). 
 
 For more info, please see Chapter 9, "How to test Terraform code", of 
 *[Terraform: Up and Running](http://www.terraformupandrunning.com)*.
@@ -27,16 +29,6 @@ environment variables:
 export AWS_ACCESS_KEY_ID=(your access key id)
 export AWS_SECRET_ACCESS_KEY=(your secret access key)
 ```
-
-Configure the database credentials as environment variables:
-
-```
-export TF_VAR_db_username=(desired database username)
-export TF_VAR_db_password=(desired database password)
-```
-
-Open `main.tf`, uncomment the `backend` configuration, and fill in the name of your S3 bucket, DynamoDB table, and
-the path to use for the Terraform state file.
 
 Deploy the code:
 

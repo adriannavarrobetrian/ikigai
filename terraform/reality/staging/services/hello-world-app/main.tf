@@ -7,35 +7,48 @@ terraform {
       version = "~> 4.0"
     }
   }
+
   backend "s3" {
 
     # This backend configuration is filled in automatically at test time by Terratest. If you wish to run this example
     # manually, uncomment and fill in the config below.
 
     bucket         = "terraform-state-ikigai"
-    key            = "staging/services/webserver-cluster/terraform.tfstate"
+    key            = "staging/services/hello-world-app/terraform.tfstate"
     region         = "eu-west-2"
     dynamodb_table = "terraform-locks-ikigai"
     encrypt        = true
 
   }
+
 }
 
 provider "aws" {
   region = "eu-west-2"
 }
 
-module "webserver_cluster" {
+module "hello_world_app" {
+  source = "../../../../modules/services/hello-world-app"
 
-  # Since the terraform-up-and-running-code repo is open source, we're using an HTTPS URL here. If it was a private
-  # repo, we'd instead use an SSH URL (git@github.com:brikis98/terraform-up-and-running-code.git) to leverage SSH auth
-  source = "github.com/adriannavarrobetrian/ikigai-terraform-modules//services/webserver-cluster"
+  server_text = var.server_text
 
-  cluster_name           = var.cluster_name
+  environment            = var.environment
   db_remote_state_bucket = var.db_remote_state_bucket
   db_remote_state_key    = var.db_remote_state_key
 
-  instance_type = "t2.micro"
-  min_size      = 3
-  max_size      = 3
+  instance_type      = "t2.micro"
+  min_size           = 2
+  max_size           = 2
+  enable_autoscaling = false
+  ami                = data.aws_ami.ubuntu.id
+}
+
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  owners      = ["099720109477"] # Canonical
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
 }

@@ -26,15 +26,10 @@ provider "aws" {
   region = "eu-west-2"
 }
 
-resource "aws_db_instance" "example" {
-  identifier_prefix   = "staging"
-  engine              = "mysql"
-  allocated_storage   = 10
-  instance_class      = "db.t2.micro"
-  skip_final_snapshot = true
+module "mysql" {
+  source = "../../../../modules/data-stores/mysql"
 
-  db_name             = var.db_name
-
-  username = var.db_username
-  password = var.db_password
+  db_name     = var.db_name
+  db_username = var.db_username
+  db_password = var.db_password
 }
