@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cardano-node
+  labels:
+    app: cardano-node
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cardano-node
+  template:
+    metadata:
+      labels:
+        app: cardano-node
+    spec:
+      containers:
+      - image: ghcr.io/blinklabs-io/cardano-node
+        name:  cardano-node
+        env:
+        - name:  NETWORK
+          value:  preprod       
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "100m"
+        ports:
+        - containerPort: 3001
+        volumeMounts:
+        - mountPath: /data/db
+          name: node-data
+        - mountPath: /data/ipc
+          name: node-ipc
+      volumes:
+        - name: node-data
+          emptyDir: {}
+        - name: node-ipc
+          emptyDir: {}
