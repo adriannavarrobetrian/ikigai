@@ -11,3 +11,7 @@ packer/distributed/master/jenkins.key.pub
 Repository Name: "DevOpsDojo: Finding Ik.md
 config
 credentials
+.venv
+.env
+__pycache__
+
