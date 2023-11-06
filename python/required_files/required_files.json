@@ -1,0 +1,20 @@
+[
+    {
+        "protocol": "https",
+        "url": "downloadschalenge.blob.core.windows.net/files/helloworld_383x215.png",
+        "output": "retro.png"
+    },
+    {
+        "protocol": "https",
+        "url": "github.com/RyanS-J/challenge/blob/main/hello_world.png?raw=true"
+    },
+    {
+        "protocol": "http",
+        "url": "20.229.234.254/file.png"
+    },
+    {
+        "protocol": "https",
+        "url": "20.229.234.254/file.jfif",
+        "insecure": "True"
+    }
+]
