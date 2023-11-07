@@ -1,53 +1,38 @@
-import json
 import requests
+import sys
+import os
 
-
-url = "http://ikigaitestbucket.s3-website-eu-west-1.amazonaws.com/"
+folder_name = "./files"
+base_url = "http://ikigaitestbucket.s3-website-eu-west-1.amazonaws.com/"
 filename = "required_files.json"
 
-print (f"\nEl link es: {url}{filename}")
-
-#download file from url as json
-response = requests.get(url+filename)
-
-if response.status_code == 200:
-    data = response.json()
-else:
+try:
+    data = requests.get(base_url + filename).json()
+except requests.exceptions.RequestException as e:
     print("Failed to retrieve the JSON file.")
+    sys.exit(1)
 
-print(data)
+if not os.path.exists(folder_name):
+    os.makedirs(folder_name)
 
-# for i in file:
-#      print(file[i]['url'])
-#     # print(file[i]['protocol'])
-#     # print(file[i]['output'])
-#     # print(f"\n")
+for item in data:
+    file = item.get('output', base_url.split('/')[-1])
+    protocol = item.get('protocol')
+    base_url = item.get('url')
 
+    if item.get('output') is not None:
+        file_path = os.path.join(folder_name, item.get('output'))
+    else:
+        file_path = os.path.join(folder_name, file)
 
-# # Load the JSON data from a file
-# with open('file.json', 'r') as json_file:
-#     data = json.load(json_file)
+    try:
+        response = requests.get(item.get('protocol') + '://' + item.get('url'), verify=True, timeout=3)
+    except requests.exceptions.RequestException as e:
+        print(e)
 
-# # Loop through the JSON objects and download the files
-# for item in data:
-#     protocol = item['protocol']
-#     url = item['url']
-#     filename = item.get('output', url.split('/')[-1])  # Use the last part of the URL as the default filename
-#     try:
-#         if protocol == 'https':
-#             url = f"https://{url}"  
-#             if 'insecure' in item and item['insecure'].lower() == 'true':
-#                 response = requests.get(url, verify=False,timeout=2)
-#             else:
-#                 response = requests.get(url,timeout=2)
-#         elif protocol == 'http':
-#             url = "http://{url}"  
-#             response = requests.get(url,timeout=2)
-#         else:
-#             print(f"Unsupported protocol: {protocol}")
-#             continue
-#         print(f"Downloaded {filename}")
-#     except requests.exceptions.Timeout:
-#         print(f"Timeout error while trying to download {url}")
-        
-# print("All downloads completed.")
+    if response.status_code == 200:
+        with open(file_path, "wb") as file:
+            file.write(response.content)
+        print("File written.")
+
+print("All downloads completed.")
