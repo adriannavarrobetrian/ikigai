@@ -14,5 +14,5 @@ credentials
 .venv
 .env
 __pycache__
-.vscode
+.vscode/
 
