@@ -1,0 +1,40 @@
+name: Python CI
+on: [push, pull_request]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          python:
+            - 'python/**'
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      run: |
+        make install
+
+    - name: Lint with pylint
+      run: |
+        make lint
+
+    - name: Test with pytest
+      run: |
+        make test
+
+    - name: Format code with Python Black
+      run: |
+        make format
