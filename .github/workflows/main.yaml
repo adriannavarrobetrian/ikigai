@@ -16,7 +16,7 @@ jobs:
       with:
         filters: |
           src:
-            - 'playground/**'
+            - 'phyton/playground/**'
 
     - name: Set up Python 3.12
       uses: actions/setup-python@v2
@@ -24,21 +24,21 @@ jobs:
         python-version: 3.12
 
     - name: Install dependencies
-      # if: steps.filter.outcome.src == 'true'
+      if: steps.filter.outcome.src == 'true'
       run: |
         make install
 
     - name: Lint with pylint
-      # if: steps.filter.outcome.src == 'true'
+      if: steps.filter.outcome.src == 'true'
       run: |
         make lint
 
     # - name: Test with pytest
-    #   # if: steps.filter.outcome.src == 'true'
+    #    if: steps.filter.outcome.src == 'true'
     #   run: |
     #     make test
 
     # - name: Format code with Python Black
-    #   # if: steps.filter.outcome.src == 'true'
+    #    if: steps.filter.outcome.src == 'true'
     #   run: |
     #     make format
