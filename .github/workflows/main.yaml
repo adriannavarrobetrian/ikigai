@@ -24,12 +24,12 @@ jobs:
         python-version: 3.12
 
     - name: Install dependencies
-      if: steps.filter.outputs == 'true'
+      # if: steps.filter.outputs == 'true'
       run: |
         make install
 
     - name: Lint with pylint
-      if: steps.filter.outputs == 'true'
+      # if: steps.filter.outputs == 'true'
       run: |
         make lint
 
