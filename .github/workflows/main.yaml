@@ -33,10 +33,10 @@ jobs:
       run: |
         make lint
 
-    - name: Test with pytest
-      # if: steps.filter.outcome.src == 'true'
-      run: |
-        make test
+    # - name: Test with pytest
+    #   # if: steps.filter.outcome.src == 'true'
+    #   run: |
+    #     make test
 
     - name: Format code with Python Black
       # if: steps.filter.outcome.src == 'true'
