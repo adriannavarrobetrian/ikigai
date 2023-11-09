@@ -1,0 +1,50 @@
+name: Test Multiple Python Versions 
+on:
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, 3.10, 3.11, 3.12]
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v2 
+      
+      - uses: dorny/paths-filter@v2
+        id: filter
+        with:
+          filters: |
+            Mobile:
+              - 'python/**'     
+
+      - name: Install dependencies
+        if: steps.filter.outputs.python == 'true'
+        run:  |
+          make install
+          
+      - name: Lint with pylint
+        if: steps.filter.outputs.python == 'true'
+        run:  |
+          make lint
+
+      - name: Test with pytest
+        if: steps.filter.outputs.python == 'true'
+        run:  |
+          make test
+
+      - name: Format code with Python Black
+        if: steps.filter.outputs.python == 'true'
+        run:  |
+          make format
+
+          path: Mobile/build/app/outputs/apk/release/app-release.apk
