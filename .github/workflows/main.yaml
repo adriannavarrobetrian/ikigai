@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: python
+        working-directory: python/playground
 
     steps:
     - uses: actions/checkout@v2
