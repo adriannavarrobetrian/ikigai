@@ -1,6 +1,6 @@
 # Ikigai
 
-Multi Cloud Infrastructure.
+DevOps playground.
 ## Introduction
 
 Welcome to my personal Ikigai project repository dedicated to honing my DevOps skills while embodying the principles of the Ikigai philosophy. Just as Ikigai represents the convergence of passion, mission, vocation, and profession, this repository seeks to unite my passion for coding and my commitment to continuous learning, while contributing to the greater DevOps community.
