@@ -7,7 +7,7 @@ def decimal_to_octal():
     Converts a decimal number to octal using print() output formatting.
     
     Prompts the user to enter a decimal number, converts it to octal, and
-    prints the result using the print() function...
+    prints the result using the print() function....
     """
     decimal_number = int(input("Enter a decimal number: "))
     octal_number = oct(decimal_number)
