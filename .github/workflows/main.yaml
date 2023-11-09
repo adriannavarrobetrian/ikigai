@@ -24,17 +24,21 @@ jobs:
         python-version: 3.x
 
     - name: Install dependencies
+      if: steps.filter.outputs.python == 'true'
       run: |
         make install
 
     - name: Lint with pylint
+      if: steps.filter.outputs.python == 'true'
       run: |
         make lint
 
     - name: Test with pytest
+      if: steps.filter.outputs.python == 'true'
       run: |
         make test
 
     - name: Format code with Python Black
+      if: steps.filter.outputs.python == 'true'
       run: |
         make format
