@@ -1,5 +1,5 @@
 # Ikigai
-
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/adriannavarro/ikigai/Python CI?label=GitHub%20Actions&logo=github)
 DevOps playground.
 ## Introduction
 
