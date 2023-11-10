@@ -5,7 +5,7 @@ helm create webapp1
 ```
 
 
-# Follow along with the video
+# Follow along
 - Create the files, copying and pasting from templates-original
 
 # Install the first one
