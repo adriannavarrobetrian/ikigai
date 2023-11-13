@@ -7,4 +7,4 @@
 - Jenkins agents attach themselves to the Jenkins master at boot up.
 - Jenkins agents scale up and down based on load using autoscaling groups.
 - Jenkins is available through a cloud load balancer.
-- Deploys a microservice arquitecture with several languages: Go, Python, NodeJS
+- Deploys a microservice architecture with several languages: Go, Python, NodeJS
