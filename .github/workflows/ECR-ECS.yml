@@ -59,6 +59,9 @@ jobs:
         - name: Terraform Plan Status
           if: steps.plan.outcome == 'failure'
           run: exit 1
-  
-        - name: Terraform Apply
-          run: terraform apply -var-file=variables.tfvars   -auto-approve
+          
+        - name: Terraform destroy
+          run: terraform destroy -var-file=variables.tfvars   -auto-approve  
+          
+     #   - name: Terraform Apply
+     #     run: terraform apply -var-file=variables.tfvars   -auto-approve
