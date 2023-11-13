@@ -22,3 +22,11 @@ provider "aws" {
   region = "eu-west-1"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "terraform-state-ikigai"
+    region = "eu-west-2"
+    key = "ECS/terraform.tfstate"
+  }
+}
+
