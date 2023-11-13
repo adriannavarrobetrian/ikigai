@@ -6,6 +6,9 @@ jobs:
   ECR_ECS_Deployment:
     name: Build Docker Image And Push To ECR And Deploy To ECS
     runs-on: ubuntu-latest  
+    defaults:
+      run:
+        working-directory: AWS_ECS
     steps:  
         - name: Checkout
           uses: actions/checkout@v2    
