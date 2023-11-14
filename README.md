@@ -1,6 +1,6 @@
 ![example workflow](
 https://github.com/adriannavarrobetrian/ikigai/actions/workflows/main.yaml/badge.svg)
-# Ikigai
+# ikigai
 
 Devops Ikigai playground.
 
