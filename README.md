@@ -2,7 +2,7 @@
 https://github.com/adriannavarrobetrian/ikigai/actions/workflows/main.yaml/badge.svg)
 # ikigai
 
-Devops Ikigai playground.
+Devops ikigai playground.
 
 ## Introduction
 
