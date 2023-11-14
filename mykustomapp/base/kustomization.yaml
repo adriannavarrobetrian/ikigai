@@ -1,0 +1,22 @@
+
+resources: 
+- deployment.yaml
+- service.yaml
+
+commonLabels:
+  app: my-custom-app
+
+commonAnnotations:
+  app: my-custom-annotations
+
+namePrefix:
+  custom-
+
+nameSuffix:
+  -v1
+
+configMapGenerator:
+- name: my-custom-map
+  files: 
+    - config.properties
+
