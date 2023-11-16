@@ -1,5 +1,7 @@
 ![example workflow](
 https://github.com/adriannavarrobetrian/ikigai/actions/workflows/main.yaml/badge.svg)
+
+[![CodeQL](https://github.com/adriannavarrobetrian/ikigai/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/adriannavarrobetrian/ikigai/actions/workflows/github-code-scanning/codeql)
 # ikigai
 
 Devops ikigai playground.
