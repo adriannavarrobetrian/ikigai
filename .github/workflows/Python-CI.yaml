@@ -1,5 +1,11 @@
 name: Python CI
-on: [push, pull_request]
+
+on:
+  push:
+    branches:
+      - main  
+  pull_request:
+
 jobs:
   build:
     name: Build
@@ -9,36 +15,39 @@ jobs:
         working-directory: python/playground
 
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - uses: dorny/paths-filter@v2
-      id: filter
-      with:
-        filters: |
-          src:
-            - 'phyton/playground/**'
+      - name: Filter Paths
+        id: filter
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            src:
+              - 'python/playground/**'
 
-    - name: Set up Python 3.12
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.12
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.12
 
-    - name: Install dependencies
-      # if: steps.filter.outputs == 'true'
-      run: |
-        make install
+      - name: Install dependencies
+        if: ${{ steps.filter.outputs.match == 'true' }}  # Check if there are changes in the specified paths
+        run: |
+          make install
 
-    - name: Lint with pylint
-      # if: steps.filter.outputs == 'true'
-      run: |
-        make lint
+      - name: Lint with pylint
+        if: ${{ steps.filter.outputs.match == 'true' }}  # Check if there are changes in the specified paths
+        run: |
+          make lint
 
-    # - name: Test with pytest
-    #    if: steps.filter.outcome.outputs == 'true'
-    #   run: |
-    #     make test
+      # Uncomment and adjust the following lines if you have tests
+      # - name: Test with pytest
+      #   if: ${{ steps.filter.outputs.match == 'true' }}
+      #   run: |
+      #     make test
 
-    - name: Format code with Python Black
-       #if: steps.filter.outcome.outputs == 'true'
-      run: |
-        make format
+      - name: Format code with Python Black
+        if: ${{ steps.filter.outputs.match == 'true' }}  # Check if there are changes in the specified paths
+        run: |
+          make format
