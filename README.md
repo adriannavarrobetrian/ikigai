@@ -1,5 +1,4 @@
-![example workflow](
-https://github.com/adriannavarrobetrian/ikigai/actions/workflows/main.yaml/badge.svg)
+[![Python CI](https://github.com/adriannavarrobetrian/ikigai/actions/workflows/Python-CI.yaml/badge.svg)](https://github.com/adriannavarrobetrian/ikigai/actions/workflows/Python-CI.yaml)
 
 [![CodeQL](https://github.com/adriannavarrobetrian/ikigai/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/adriannavarrobetrian/ikigai/actions/workflows/github-code-scanning/codeql)
 # ikigai
