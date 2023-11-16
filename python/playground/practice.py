@@ -1,20 +1,18 @@
-"""
-This module contains a function to convert a decimal
-number to octal using print() output formatting.
-"""
+# Exercise 10: Remove duplicates from a list and create a tuple and find the minimum and maximum number
+# Given:
 
+# sample_list = [87, 45, 41, 65, 94, 41, 99, 94]
+sample_list = [87, 45, 41, 65, 94, 41, 99, 94]
+unique_list = list(set(sample_list))
+result_tuple = tuple(unique_list)
+min_number = min(result_tuple)
+max_number = max(result_tuple)
 
-def decimal_to_octal():
-    """
-    Converts a decimal number to octal using print() output formatting.
+print(unique_list)
+print(result_tuple)
+print(min_number)
+print(max_number)
 
-    Prompts the user to enter a decimal number, converts it to octal, and
-    prints the result using the print() function..
-    """
-    decimal_number = int(input("Enter a decimal number: "))
-    octal_number = oct(decimal_number)
-    print("The octal value of", decimal_number, "is", octal_number[2:])
+# Expected output:
 
-
-if __name__ == "__main__":
-    decimal_to_octal()
+# [87, 45, 41, 65, 94, 99]
