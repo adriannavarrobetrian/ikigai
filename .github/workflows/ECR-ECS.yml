@@ -11,7 +11,7 @@ jobs:
         working-directory: AWS_ECS
     steps:  
         - name: Checkout
-          uses: actions/checkout@v2    
+          uses: actions/checkout@v4    
           
         - name: Setup AWS ECR Details
           uses: aws-actions/configure-aws-credentials@v1
