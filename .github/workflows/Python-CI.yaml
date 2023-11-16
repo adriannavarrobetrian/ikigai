@@ -12,10 +12,11 @@ jobs:
     - uses: actions/checkout@v2
 
     - uses: dorny/paths-filter@v2
+      id: filter
       with:
         filters: |
-          - filter: 'python/playground/**'
-            regex: true
+          src:
+            - 'phyton/playground/**'
 
     - name: Set up Python 3.12
       uses: actions/setup-python@v2
@@ -23,24 +24,21 @@ jobs:
         python-version: 3.12
 
     - name: Install dependencies
+      # if: steps.filter.outputs == 'true'
       run: |
-        if [ "${{ steps.filter.outputs.match }}" = "true" ]; then
-          make install
-        else
-          echo "No changes in the src/ directory. Skipping the specific command."
-        fi
+        make install
 
-    # - name: Lint with pylint
-    #   # if: steps.filter.outputs == 'true'
+    - name: Lint with pylint
+      # if: steps.filter.outputs == 'true'
+      run: |
+        make lint
+
+    # - name: Test with pytest
+    #    if: steps.filter.outcome.outputs == 'true'
     #   run: |
-    #     make lint
+    #     make test
 
-    # # - name: Test with pytest
-    # #    if: steps.filter.outcome.outputs == 'true'
-    # #   run: |
-    # #     make test
-
-    # - name: Format code with Python Black
-    #    #if: steps.filter.outcome.outputs == 'true'
-    #   run: |
-    #     make format
+    - name: Format code with Python Black
+       #if: steps.filter.outcome.outputs == 'true'
+      run: |
+        make format
