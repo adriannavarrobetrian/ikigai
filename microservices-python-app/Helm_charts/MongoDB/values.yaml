@@ -1,0 +1,13 @@
+secret:
+  root_username: nasi
+  root_password: nasi1234
+  username: nasi
+  password: nasi1234
+  users_list: nasi
+
+
+  mongosh mongodb://nasi:nasi1234@172.20.138.219:30005/mp3s?authSource=admin
+  echo "deb http://repo.mongodb.org/apt/ubuntu precise/mongodb-org/3.0 multiverse" |  tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+  echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" |  tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+
+  
